@@ -1,0 +1,199 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5a1cb">
+<title>THE PINK MINUTE — For Sarauniya</title>
+<style>
+:root{--pink:#ff9bc9;--hot:#f05ca9;--pale:#ffe4f1;--purple:#7444b5;--deep:#26113f;--ink:#321747;--paper:#fff3fa}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:Arial,Helvetica,sans-serif;background:#f7a9ce;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 12% 15%,#fff0f8 0 5%,transparent 30%),radial-gradient(circle at 88% 72%,#d1a0ff 0 4%,transparent 29%),linear-gradient(140deg,#ffb5d5,#f48aba 45%,#d5a5f5)}
+#grain{position:fixed;inset:0;z-index:20;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E")}
+.wrap{max-width:900px;margin:auto;padding:0 18px 50px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding:22px 2px;font:700 9px/1.4 system-ui;letter-spacing:.18em;text-transform:uppercase;color:#4e2869}
+.mast span:last-child{border:1px solid #63348a55;border-radius:30px;padding:8px 11px}
+.hero{min-height:calc(100svh - 58px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;padding:35px 0 75px}
+.sticker{font:800 9px system-ui;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:var(--purple);padding:10px 15px;border-radius:3px;transform:rotate(-5deg);box-shadow:5px 5px 0 #f8d4eb;margin-bottom:22px}
+h1,h2,p{margin-top:0}
+h1{font:900 clamp(57px,14vw,125px)/.78 Arial,sans-serif;letter-spacing:-.095em;color:#fff7fb;text-shadow:0 5px 0 #c94f96,0 13px 34px #82346e38;margin:0 0 24px}
+h1 em{font-style:normal;color:var(--purple);text-shadow:0 3px 0 #f7d8ff,0 8px 30px #7b3bbd33}
+.lede{font:400 clamp(15px,4vw,19px)/1.55 Georgia,serif;max-width:420px;color:#5d2d72}
+.eyebrow{font:800 9px system-ui;letter-spacing:.24em;text-transform:uppercase;color:#723c91}
+.clock-shell{width:min(88vw,490px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 34% 24%,#fff8fc,#ffdbeb 43%,#f38ac1 100%);box-shadow:inset 0 0 0 1px #fff9,inset 0 -15px 38px #b84d9450,0 25px 65px #8c3b7d30;display:flex;align-items:center;justify-content:center;position:relative;margin:16px auto 25px}
+.clock-shell:before{content:"";position:absolute;inset:4.5%;border:1px solid #9143aa45;border-radius:50%}
+.clock-shell:after{content:"";position:absolute;inset:9%;border:1px dashed #8a4ba65c;border-radius:50%;animation:rotate 65s linear infinite}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.clock-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px}
+.time{font:800 clamp(43px,12vw,83px)/.9 Arial,sans-serif;letter-spacing:-.08em;color:var(--deep);font-variant-numeric:tabular-nums}
+.seconds{font-size:.36em;letter-spacing:-.03em;color:var(--purple);vertical-align:top;margin-left:3px}
+.clock-dot{position:absolute;left:50%;top:8%;width:11px;height:11px;border-radius:50%;background:#fff;border:3px solid var(--hot);box-shadow:0 0 0 5px #f5a2ce60;transform:translateX(-50%);z-index:2}
+.action{border:0;border-radius:4px;background:var(--deep);color:#fff;padding:16px 21px;font:800 10px system-ui;letter-spacing:.17em;text-transform:uppercase;box-shadow:6px 6px 0 #fff1d9;cursor:pointer;transition:.2s}
+.action:active{transform:translate(3px,3px);box-shadow:3px 3px 0 #fff1d9}
+.action.alt{background:transparent;color:var(--deep);border:1px solid #592e7959;box-shadow:none}
+.hero-foot{position:absolute;bottom:20px;font:800 9px system-ui;letter-spacing:.18em;color:#713e8a;text-transform:uppercase}
+.band{background:#fff3fa;border-radius:4px;padding:clamp(25px,7vw,58px);margin:10px 0 34px;box-shadow:0 18px 55px #9a3d8030;position:relative;overflow:hidden}
+.band:after{content:"S";position:absolute;right:-16px;bottom:-85px;font:900 250px Arial;color:#f9d1e7;z-index:0;line-height:1}
+.band>*{position:relative;z-index:1}
+.band .eyebrow{margin-bottom:17px}
+.band h2{font:800 clamp(34px,8vw,62px)/.94 Arial;letter-spacing:-.07em;color:var(--deep);max-width:550px;margin-bottom:18px}
+.band p{font:17px/1.65 Georgia,serif;color:#5a3c69;max-width:560px}
+.band .em{color:#bb418a;font-style:italic}
+.strip{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0 0}
+.tile{min-height:120px;padding:17px;background:#f9cce2;border:1px solid #9d4b9b25;display:flex;flex-direction:column;justify-content:space-between}
+.tile:nth-child(2){background:#d9c2f3}
+.tile:nth-child(3){background:#f8e3ed}
+.tile:nth-child(4){background:#b995e4;color:#2a1245}
+.tile b{font:800 10px system-ui;letter-spacing:.13em;text-transform:uppercase}
+.tile span{font:italic 17px Georgia;line-height:1.25}
+.section{padding:58px 2px 72px}
+.section h2{font:800 clamp(37px,9vw,67px)/.9 Arial;letter-spacing:-.07em;color:#fff7fb;text-shadow:0 3px 0 #c94f96;margin-bottom:15px}
+.section>p{font:16px/1.6 Georgia,serif;color:#572c70;max-width:540px}
+.dialrow{display:flex;gap:9px;flex-wrap:wrap;margin:22px 0}
+.pill{border:1px solid #65338b75;color:#51276f;background:#ffffff38;border-radius:30px;padding:12px 14px;font:800 9px system-ui;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.pill.selected{background:var(--purple);color:white;border-color:var(--purple)}
+.response{min-height:145px;background:#fff1f9;border-left:5px solid var(--purple);padding:22px 20px;max-width:580px;box-shadow:8px 8px 0 #c65c9c50}
+.response .resp-head{font:800 9px system-ui;letter-spacing:.2em;text-transform:uppercase;color:#8c4eaa;margin-bottom:12px}
+.response p{font:italic clamp(20px,5vw,27px)/1.35 Georgia,serif;color:#49265f;margin:0}
+.capture{border:1px solid #ffffff90;background:#ffffff38;padding:20px;max-width:560px;margin-top:24px}
+.capture label{font:800 9px system-ui;letter-spacing:.16em;text-transform:uppercase;color:#5e2d7a;display:block;margin-bottom:12px}
+.capture p{font:15px/1.5 Georgia;color:#643c78}
+.capture strong{font:800 12px system-ui;color:#59277b;display:block;margin-top:10px}
+.end{background:#281440;color:#fff2fa;border-radius:4px;padding:clamp(25px,7vw,50px);box-shadow:12px 12px 0 #fff2fa80;position:relative}
+.end:before{content:"♡";position:absolute;right:17px;top:8px;color:#f4a3d0;font:50px Georgia;opacity:.7}
+.end h2{font:300 clamp(39px,9vw,65px)/.95 Georgia;letter-spacing:-.05em;color:#fff;margin-bottom:24px}
+.end p{font:17px/1.7 Georgia;color:#f2ddec}
+.sign{font:italic 25px Georgia;color:#ffadd3;margin-top:25px}
+.small{font:9px system-ui;letter-spacing:.17em;text-transform:uppercase;color:#a88ebc;margin-top:27px}
+@media(max-width:390px){.strip{gap:7px}.tile{padding:13px;min-height:110px}.tile span{font-size:15px}.mast{font-size:8px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="grain"></div>
+<div class="wrap">
+<header class="mast"><span>Personal transmission · 001</span><span>For Sarauniya ♡</span></header>
+
+<section class="hero" id="top">
+  <div class="sticker">Not an ordinary love note</div>
+  <h1>A PINK<br><em>MINUTE.</em></h1>
+  <p class="lede">A tiny corner of the universe that pauses for no one — except that, for a moment, it can pause for you.</p>
+  <div class="clock-shell">
+    <i class="clock-dot"></i>
+    <div class="clock-inner">
+      <div class="time" id="clock">--:--<span class="seconds">--</span></div>
+    </div>
+  </div>
+  <button class="action" onclick="capture()">Keep this minute ♡</button>
+  <div class="hero-foot">Scroll into your own little pocket of time ↓</div>
+</section>
+
+<section class="band" id="moment">
+  <div class="eyebrow">A moment, just for you</div>
+  <h2>Time doesn't stop.<br><span style="color:#d94d9d">But love can notice.</span></h2>
+  <p>Every second moves on, quietly. Most of them pass without a name. But some moments make us look up and feel grateful that we are here, in this very life, at this very time.</p>
+  <p class="em">This minute is yours, Sarauniya. Not because the clock made it special — because you are in it.</p>
+  <div class="capture" id="capturebox">
+    <label>A little moment, kept</label>
+    <p id="capturetext">The world keeps moving, but I hope you always find moments that remind you how loved and appreciated you are.</p>
+    <strong id="savedtime">A little reminder from Muhammad ♡</strong>
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">A small collection of truths</div>
+  <h2>Things that<br>shouldn't need<br>a special date.</h2>
+  <p>Four tiny reminders. Open whichever one your heart needs today.</p>
+  <div class="strip">
+    <div class="tile"><b>01 / Real</b><span>“I adore you as you are.”</span></div>
+    <div class="tile"><b>02 / Enough</b><span>“You don't have to prove your worth.”</span></div>
+    <div class="tile"><b>03 / Becoming</b><span>“Your dreams deserve room.”</span></div>
+    <div class="tile"><b>04 / Peace</b><span>“Your heart deserves gentleness.”</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="eyebrow">Choose your frequency</div>
+  <h2>What should<br>this minute tell you?</h2>
+  <p>Choose one. Let the screen send a little reminder back.</p>
+  <div class="dialrow">
+    <button class="pill selected" onclick="selectMood(this,'soft')">Softness</button>
+    <button class="pill" onclick="selectMood(this,'courage')">Courage</button>
+    <button class="pill" onclick="selectMood(this,'joy')">Joy</button>
+    <button class="pill" onclick="selectMood(this,'love')">Love</button>
+  </div>
+  <div class="response">
+    <div class="resp-head" id="resplabel">Frequency · Softness</div>
+    <p id="response">May you be gentle with yourself today. You deserve the same tenderness you give to others.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-bottom:25px">
+  <div class="eyebrow">A wish I send into tomorrow</div>
+  <div class="end">
+    <h2>My Sarauniya,</h2>
+    <p>I can't add more hours to your day, or promise that every day will be easy. But I can hope that life meets you with kindness, that you keep finding reasons to smile, and that you never lose the realness I adore in you.</p>
+    <p>May Allah protect you, guide you toward what is good, and place peace in your heart. And if He wills that our future leads to Nikkah, may He bless it with mercy, understanding, respect, and barakah.</p>
+    <p>For now, I hope this little pink minute reminds you that somewhere in the middle of everything life asks of you, you are deeply appreciated.</p>
+    <div class="sign">With love, Muhammad ♡</div>
+  </div>
+  <div class="small">This minute passes. What it means can stay.</div>
+  <div style="margin-top:23px">
+    <button class="action" onclick="window.scrollTo({top:0,behavior:'smooth'})">Return to this minute ↺</button>
+  </div>
+</section>
+</div>
+
+<script>
+const zone='Africa/Lagos';
+const timeEl=document.getElementById('clock');
+
+function updateClock(){
+  const now=new Date();
+  const parts=new Intl.DateTimeFormat('en-GB',{
+    timeZone:zone,
+    hour:'2-digit',
+    minute:'2-digit',
+    second:'2-digit',
+    hourCycle:'h23'
+  }).formatToParts(now);
+  const get=t=>parts.find(p=>p.type===t)?.value||'00';
+  timeEl.innerHTML=`${get('hour')}:${get('minute')}<span class="seconds">${get('second')}</span>`;
+}
+updateClock();
+setInterval(updateClock,1000);
+
+function capture(){
+  const box=document.getElementById('capturebox');
+  document.getElementById('capturetext').textContent=
+    'The world keeps moving, but I hope you always find moments that remind you how loved and appreciated you are.';
+  document.getElementById('savedtime').textContent=
+    'A little reminder from Muhammad ♡';
+  box.style.boxShadow='0 0 0 2px #a06aca55,8px 8px 0 #c65c9c50';
+  document.getElementById('moment').scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+const messages={
+  soft:['Frequency · Softness','May you be gentle with yourself today. You deserve the same tenderness you give to others.'],
+  courage:['Frequency · Courage','You can take things one step at a time. Quiet courage is still courage, and your effort counts.'],
+  joy:['Frequency · Joy','I hope a little unexpected joy finds you today — the kind that makes you smile before you even know why.'],
+  love:['Frequency · Love','You are appreciated for more than what you do. I cherish the real person you are, Sarauniya.']
+};
+
+function selectMood(btn,key){
+  document.querySelectorAll('.pill').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('resplabel').textContent=messages[key][0];
+  const out=document.getElementById('response');
+  out.animate(
+    [{opacity:.1,transform:'translateY(7px)'},{opacity:1,transform:'translateY(0)'}],
+    {duration:450}
+  );
+  out.textContent=messages[key][1];
+}
+</script>
+</body>
+</html>
